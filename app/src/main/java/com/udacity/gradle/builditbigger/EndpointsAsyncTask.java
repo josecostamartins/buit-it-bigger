@@ -24,9 +24,11 @@ import br.com.digitaldreams.jokedisplay.JokeActivity;
 public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
     private static MyApi myApiService = null;
     private Context mContext;
+    private JokeCallback callback;
 
-    public EndpointsAsyncTask(Context context) {
+    public EndpointsAsyncTask(Context context, JokeCallback callback) {
         this.mContext = context;
+        this.callback = callback;
     }
 
     @Override
@@ -59,8 +61,6 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
 
     @Override
     protected void onPostExecute(String result) {
-        Intent intent = new Intent(mContext, JokeActivity.class);
-        intent.putExtra(JokeActivity.JOKE_KEY, result);
-        mContext.startActivity(intent);
+        callback.jokeCallback(result);
     }
 }
