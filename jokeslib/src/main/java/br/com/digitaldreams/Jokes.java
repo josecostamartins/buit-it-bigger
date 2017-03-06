@@ -3,15 +3,8 @@ package br.com.digitaldreams;
 // jokes provided by: http://www.icndb.com/api/
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Jokes {
 
