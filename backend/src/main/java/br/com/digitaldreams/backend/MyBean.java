@@ -1,4 +1,4 @@
-package br.com.digitaldreams.jokes.backend;
+package br.com.digitaldreams.backend;
 
 /**
  * The object model for the data we are sending through endpoints

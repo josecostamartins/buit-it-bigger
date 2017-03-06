@@ -4,13 +4,15 @@
    https://github.com/GoogleCloudPlatform/gradle-appengine-templates/tree/master/HelloEndpoints
 */
 
-package br.com.digitaldreams.jokes.backend;
+package br.com.digitaldreams.backend;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 
 import javax.inject.Named;
+
+import br.com.digitaldreams.Jokes;
 
 /**
  * An endpoint class we are exposing
@@ -19,8 +21,8 @@ import javax.inject.Named;
         name = "myApi",
         version = "v1",
         namespace = @ApiNamespace(
-                ownerDomain = "backend.jokes.digitaldreams.com.br",
-                ownerName = "backend.jokes.digitaldreams.com.br",
+                ownerDomain = "backend.digitaldreams.com.br",
+                ownerName = "backend.digitaldreams.com.br",
                 packagePath = ""
         )
 )
@@ -34,6 +36,13 @@ public class MyEndpoint {
         MyBean response = new MyBean();
         response.setData("Hi, " + name);
 
+        return response;
+    }
+
+    @ApiMethod(name = "tellJoke")
+    public MyBean tellJoke() {
+        MyBean response = new MyBean();
+        response.setData(Jokes.getJoke());
         return response;
     }
 
